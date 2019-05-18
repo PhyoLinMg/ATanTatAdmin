@@ -10,4 +10,8 @@ class Student extends Model
     protected $fillable = [
         'name', 'year',
     ];
+    public function unis()
+    {
+        return $this->hasMany('App\Uni');
+    }
 }

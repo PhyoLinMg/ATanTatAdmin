@@ -10,4 +10,13 @@ class Year extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function majors()
+    {
+        return $this->belongsToMany('App\Major');
+    }
+    
 }
+
+
+
