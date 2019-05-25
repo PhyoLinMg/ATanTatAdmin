@@ -14,7 +14,7 @@ class MajorController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.major.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class MajorController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

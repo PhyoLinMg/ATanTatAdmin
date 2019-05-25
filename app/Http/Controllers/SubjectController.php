@@ -14,7 +14,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.subject.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.subject.create');
     }
 
     /**
@@ -36,6 +36,7 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
     }
 
     /**
