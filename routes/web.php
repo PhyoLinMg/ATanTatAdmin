@@ -24,10 +24,10 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::resource('majors','MajorController');
-	Route::resource('subjects','SubjectController');
-	Route::resource('periods','PeriodController');
-	Route::resource('students','StudentController');
-	Route::resource('unis','UniController');
-	Route::resource('years','YearController');
+Route::resource('subjects','SubjectController');
+Route::resource('periods','PeriodController');
+Route::resource('students','StudentController');
+Route::resource('unis','UniController');
+Route::resource('years','YearController');
 
 

@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Subject;
 use Illuminate\Http\Request;
+use App\Repositories\Interfaces\SubjectInterface;
 
 class SubjectController extends Controller
 {
+    protected $subject;
+    public function __construct(SubjectInterface $subject){
+        $this->subject=$subject;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
+        
         return view('admin.subject.index');
     }
 
@@ -36,7 +42,9 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request);
+        $this->subject->save($request);
+        return redirect('/subjects');
+        
     }
 
     /**
@@ -82,5 +90,8 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         //
+    }
+    public function getAll(){
+        return response()->json(Subject::get());
     }
 }

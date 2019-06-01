@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Major;
 use Illuminate\Http\Request;
+use App\Repositories\Interfaces\MajorInterface;
 
 class MajorController extends Controller
 {
+    protected $major;
+    public function __construct(MajorInterface $major){
+        $this->major=$major;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,7 @@ class MajorController extends Controller
      */
     public function index()
     {
+
         return view('admin.major.index');
     }
 
@@ -35,8 +41,8 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        dd($request);
+        $this->major->save($request);
+        return redirect('/majors');
     }
 
     /**
@@ -59,6 +65,7 @@ class MajorController extends Controller
     public function edit(Major $major)
     {
         //
+        
     }
 
     /**

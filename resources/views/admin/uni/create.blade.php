@@ -7,7 +7,8 @@
 @endsection
 
 @section('content')
-<form action="{{ route('unis.store') }}">
+<form action="{{ route('unis.store') }}" method="post">
+	@csrf
 	<input type="text" name="name">
 	<input type="submit" class="btn btn-primary">
 </form>
