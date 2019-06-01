@@ -15,6 +15,7 @@ class UniController extends Controller
     public function index()
     {
         //
+        return view('admin.uni.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class UniController extends Controller
     public function create()
     {
         //
+        return view('admin.uni.create');
     }
 
     /**
@@ -36,6 +38,7 @@ class UniController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
     }
 
     /**

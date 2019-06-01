@@ -7,7 +7,8 @@
 @endsection
 
 @section('content')
-<form action="/admin/subjects/store">
+<form action="{{ route('students.store') }}" method="post">
+	@csrf
 	<input type="text" name="name">
 	<input type="text" name="year">
 	<input type="submit" class="btn btn-primary">

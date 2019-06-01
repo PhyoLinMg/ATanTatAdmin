@@ -24,7 +24,7 @@ class MajorController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.major.create');
     }
 
     /**
@@ -36,6 +36,7 @@ class MajorController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
     }
 
     /**

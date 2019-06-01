@@ -25,6 +25,7 @@ class StudentController extends Controller
     public function create()
     {
         //
+        return view('admin.student.create');
     }
 
     /**
@@ -47,6 +48,7 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         //
+        
     }
 
     /**
