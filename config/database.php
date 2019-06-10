@@ -4,7 +4,7 @@ use Illuminate\Support\Str;
 
 
 
-$DATABASE_URL = parse_url('postgres://tkpohztmovizgf:c119a757e673bc610baa5c6d826fdc8fb0361ea2ff3710ebce7a80ed5a049bdc@ec2-174-129-242-183.compute-1.amazonaws.com:5432/d4bcj3dfk795u3');
+
 return [
 
     /*
@@ -19,7 +19,7 @@ return [
     */
 
     // 'default' => env('DB_CONNECTION', 'pgsql'),
-     'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -48,11 +48,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'atantat'),
+            'username' => env('DB_USERNAME', 'linmaung'),
+            'password' => env('DB_PASSWORD', 'linmaung#1'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -67,11 +67,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $DATABASE_URL["host"],
-            'port' => $DATABASE_URL["port"],
-            'database' => ltrim($DATABASE_URL["path"], "/"),
-            'username' => $DATABASE_URL["user"],
-            'password' => $DATABASE_URL["pass"], 
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''), 
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
