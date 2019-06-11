@@ -55,10 +55,13 @@ class ApiAuthController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
+        $tokenResult = $user->createToken('Personal Access Token');
+        $token = $tokenResult->token;
         $user->save();
 
         return response()->json([
-            'message' => 'Successfully created user!'
+            'message' => 'Successfully created user!',
+            'access_token' => $tokenResult->accessToken
         ], 201);
     }
     public function logout(){
