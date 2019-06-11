@@ -10,8 +10,9 @@ class SubjectController extends Controller
 {
     protected $subject;
     public function __construct(RepoInterface $subject){
-        $this->subject=$subject;
-    }
+       $this->middleware(['auth','role:admin']);
+       $this->subject=$subject;
+   }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +20,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        
+
         return view('admin.subject.index');
     }
 

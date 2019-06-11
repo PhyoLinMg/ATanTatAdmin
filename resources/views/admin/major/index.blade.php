@@ -14,15 +14,29 @@
 		<!-- Breadcrumbs-->
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
-				<a href="/">Dashboard</a>
+				<a href="/admin">Dashboard</a>
 			</li>
 			<li class="breadcrumb-item active">Majors</li>
 		</ol>
 
 		<!-- Page Content -->
-		<h1>Blank Page</h1>
-		<hr>
-		<p>This is a great starting point for new custom pages.</p>
+		<table class="table table-dark">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Year</td>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($majors as $major)
+				<tr>
+					<td>{{$major->name}}</td>
+					<td>{{$major->year}}</td>
+				</tr>
+				@endforeach
+			</tbody>
+			
+		</table>
 
 	</div>
 	@endsection
