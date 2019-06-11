@@ -1,8 +1,8 @@
 <?php 
 namespace App\Repositories\Model;
-use App\Repositories\Interfaces\MajorInterface;
+use App\Repositories\Interfaces\RepoInterface;
 use App\Major;
-class MajorModel implements MajorInterface{
+class MajorModel implements RepoInterface{
 	public function find($id){
 
 	}

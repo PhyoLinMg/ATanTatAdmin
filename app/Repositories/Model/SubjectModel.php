@@ -1,9 +1,9 @@
 <?php 
 namespace App\Repositories\Model;
-use App\Repositories\Interfaces\SubjectInterface;
+use App\Repositories\Interfaces\RepoInterface;
 use App\Subject;
 
-class SubjectModel implements SubjectInterface{
+class SubjectModel implements RepoInterface{
 
 	public function find($id){
 		return Subject::find($id);

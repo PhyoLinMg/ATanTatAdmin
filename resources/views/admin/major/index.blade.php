@@ -7,21 +7,22 @@
 @endsection
 
 @section('content')
-<table class="table table-dark">
-	<thead>
-		<tr>
-			<td>ID</td>
-			<td>Name</td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>12</td>
-			<td>Hello</td>
-		</tr>
-		{{-- @foreach($majors as $major)
+<div id="content-wrapper">
 
-		@endforeach --}}
-	</tbody>
-</table>
-@endsection
+	<div class="container-fluid">
+
+		<!-- Breadcrumbs-->
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Dashboard</a>
+			</li>
+			<li class="breadcrumb-item active">Majors</li>
+		</ol>
+
+		<!-- Page Content -->
+		<h1>Blank Page</h1>
+		<hr>
+		<p>This is a great starting point for new custom pages.</p>
+
+	</div>
+	@endsection

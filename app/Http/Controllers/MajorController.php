@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Major;
 use Illuminate\Http\Request;
-use App\Repositories\Interfaces\MajorInterface;
+use App\Repositories\Interfaces\RepoInterface;
 
 class MajorController extends Controller
 {
     protected $major;
-    public function __construct(MajorInterface $major){
+    public function __construct(RepoInterface $major){
         $this->major=$major;
     }
     /**
@@ -19,8 +19,8 @@ class MajorController extends Controller
      */
     public function index()
     {
-
-        return view('admin.major.index');
+        $majors=Major::paginate(5);
+        return view('admin.major.index',compact('majors'));
     }
 
     /**

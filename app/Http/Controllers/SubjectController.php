@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Subject;
 use Illuminate\Http\Request;
-use App\Repositories\Interfaces\SubjectInterface;
+use App\Repositories\Interfaces\RepoInterface;
 
 class SubjectController extends Controller
 {
     protected $subject;
-    public function __construct(SubjectInterface $subject){
+    public function __construct(RepoInterface $subject){
         $this->subject=$subject;
     }
     /**

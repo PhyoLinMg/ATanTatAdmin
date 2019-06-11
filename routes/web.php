@@ -19,10 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->group(function () {
-	
+Route::get('/admin',function(){
+	return view('admin.layout.dashboard');
 });
-
 Route::resource('majors','MajorController');
 Route::resource('subjects','SubjectController');
 Route::resource('periods','PeriodController');
