@@ -15,6 +15,11 @@ class MajorModel implements RepoInterface{
 
 	}
 	public function update($id,$request){
+	
+		$major=Major::findOrFail($id);
+		$major->name=$request->name;
+		$major->year=$request->year;
+		$major->save();
 
 	}
 	public function delete($id){

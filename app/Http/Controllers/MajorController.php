@@ -65,6 +65,7 @@ class MajorController extends Controller
     public function edit(Major $major)
     {
         //
+        return view('admin.major.edit',compact('major'));
         
     }
 
@@ -78,6 +79,8 @@ class MajorController extends Controller
     public function update(Request $request, Major $major)
     {
         //
+        $this->major->update($major->id,$request);
+        return redirect('/majors');
     }
 
     /**
@@ -88,6 +91,6 @@ class MajorController extends Controller
      */
     public function destroy(Major $major)
     {
-        //
+       Major::destroy($major->id);
     }
 }
