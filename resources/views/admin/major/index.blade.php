@@ -7,12 +7,12 @@
 @endsection
 
 @section('content')
-<div id="content-wrapper">
+<div id="content-wrapper" class="black">
 
 	<div class="container-fluid">
 
 		<!-- Breadcrumbs-->
-		<ol class="breadcrumb">
+		<ol class="breadcrumb black">
 			<li class="breadcrumb-item">
 				<a href="/admin">Dashboard</a>
 			</li>

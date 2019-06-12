@@ -9,6 +9,7 @@ class SubjectModel implements RepoInterface{
 		return Subject::find($id);
 	}
 	public function save($request){
+		
 		$subject=Subject::create([
 			'name'=>$request->name
 		]);
@@ -16,10 +17,13 @@ class SubjectModel implements RepoInterface{
 
 	}
 	public function update($id,$request){
+		$subject=Subject::findOrFail($id);
+		$subject->name=$request->name;
+		$subject->save();
 
 	}
 	public function delete($id){
-
+		Subject::destory($id);
 	}
 }
 ?>

@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Subject;
 use Illuminate\Http\Request;
-use App\Repositories\Interfaces\RepoInterface;
+use App\Repositories\Model\SubjectModel;
 
 class SubjectController extends Controller
 {
     protected $subject;
-    public function __construct(RepoInterface $subject){
+    public function __construct(SubjectModel $subject){
+        $this->subject=$subject;
        $this->middleware(['auth','role:admin']);
-       $this->subject=$subject;
    }
     /**
      * Display a listing of the resource.
@@ -20,8 +20,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-
-        return view('admin.subject.index');
+        $subjects=Subject::paginate(5);
+        return view('admin.subject.index',compact('subjects'));
     }
 
     /**
@@ -42,7 +42,6 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $this->subject->save($request);
         return redirect('/subjects');
         
@@ -67,7 +66,7 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+        return view('admin.subject.edit',compact('subject'));
     }
 
     /**
@@ -79,7 +78,8 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        //
+        $this->subject->update($subject->id,$request);
+        return redirect('/subjects');
     }
 
     /**
@@ -90,7 +90,8 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        $this->subject->delete($subject->id);
+        return redirect('/subjects');
     }
     public function getAll(){
         return response()->json(Subject::get());

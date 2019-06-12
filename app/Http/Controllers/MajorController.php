@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Major;
 use Illuminate\Http\Request;
-use App\Repositories\Interfaces\RepoInterface;
+use App\Repositories\Model\MajorModel;
 
 class MajorController extends Controller
 {
     protected $major;
-    public function __construct(RepoInterface $major){
+    public function __construct(MajorModel $major){
         $this->major=$major;
     }
     /**
@@ -92,5 +92,6 @@ class MajorController extends Controller
     public function destroy(Major $major)
     {
        Major::destroy($major->id);
+       return redirect('/majors');
     }
 }

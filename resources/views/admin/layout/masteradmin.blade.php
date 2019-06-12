@@ -11,7 +11,9 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 	<link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+
 </head>
 <body id="page-top">
 	@include('admin.layout.nav')

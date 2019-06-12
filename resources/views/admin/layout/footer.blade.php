@@ -1,7 +1,7 @@
-<footer class="sticky-footer">
+<footer class="sticky-footer" style="background-color: black;">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright © Your Website 2019</span>
+			<span style="color: white;">Copyright © Your Website 2019</span>
 		</div>
 	</div>
 </footer>

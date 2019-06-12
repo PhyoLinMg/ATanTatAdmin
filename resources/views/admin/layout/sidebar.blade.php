@@ -11,7 +11,6 @@
           <span>Majors</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Majors</h6>
           <a class="dropdown-item" href="{{ route('majors.index') }}">Show</a>
           <a class="dropdown-item" href="{{ route('majors.create') }}">Create</a>
           
@@ -27,7 +26,6 @@
           <span>Subjects</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Subjects</h6>
           <a class="dropdown-item" href="{{ route('subjects.index') }}">Show</a>
           <a class="dropdown-item" href="{{ route('subjects.create') }}">Create</a>
           
@@ -43,7 +41,6 @@
           <span>Universities</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Majors</h6>
           <a class="dropdown-item" href="{{ route('unis.index') }}">Show</a>
           <a class="dropdown-item" href="{{ route('unis.create') }}">Create</a>
           

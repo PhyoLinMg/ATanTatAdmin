@@ -6,15 +6,16 @@
 @endsection
 
 @section('content')
-<div id="content-wrapper">
+<div id="content-wrapper" class="black">
 
 	<div class="container-fluid">
 		<!-- Breadcrumbs-->
-		<ol class="breadcrumb">
+		<ol class="breadcrumb black" >
 			<li class="breadcrumb-item">
 				<a href="/admin">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item active">Majors</li>
+			<li class="breadcrumb-item"><a href="/majors">Majors</a></li>
+			<li class="breadcrumb-item active">Edit</li>
 		</ol>
 		
 		<!-- Page Content -->
@@ -23,7 +24,7 @@
 			@csrf
 			
 			<div class="form-group">
-				<label for="name">Major Name</label>
+				<label for="name" class="white">Major Name</label>
 				@if($errors->has("name"))
 				<input type="text" class="form-control is-invalid" name="name" id="name"  placeholder="Enter the product name" value="{{ old('name')}} ">
 				<div class="invalid-feedback">
@@ -34,7 +35,7 @@
 				@endif
 			</div>	
 			<div class="form-group">
-				<label for="name">Year</label>
+				<label for="name" class="white">Year</label>
 				@if($errors->has("year"))
 				<input type="text" class="form-control is-invalid" name="year" id="year"  placeholder="Enter the year" value="{{ old('year')}} ">
 				<div class="invalid-feedback">
