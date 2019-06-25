@@ -19,9 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->group(function () {
-	
-});
+Route::get('/admin','AdminController@admin');
+
+Route::get('/admin/register','AdminController@adminregister')->name('adminregister');
+Route::post('/admin/store','AdminController@adminstore')->name('adminstore');
 
 Route::resource('majors','MajorController');
 Route::resource('subjects','SubjectController');

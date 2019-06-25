@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Uni;
 use Illuminate\Http\Request;
+use App\Repositories\Model\UniModel;
 
 class UniController extends Controller
 {
@@ -12,10 +13,16 @@ class UniController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+        protected $uni;
+    public function __construct(UniModel $uni){
+        $this->uni=$uni;
+       $this->middleware(['auth','role:admin']);
+   }
+
     public function index()
     {
-        //
-        return view('admin.uni.index');
+        $unis=Uni::paginate(5);
+        return view('admin.uni.index',compact('unis'));
     }
 
     /**
@@ -25,7 +32,6 @@ class UniController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.uni.create');
     }
 
@@ -38,7 +44,9 @@ class UniController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request);
+        $this->uni->save($request);
+        return redirect('/unis');
+        
     }
 
     /**
@@ -60,7 +68,7 @@ class UniController extends Controller
      */
     public function edit(Uni $uni)
     {
-        //
+        return view('admin.uni.edit',compact('uni'));
     }
 
     /**
@@ -72,7 +80,8 @@ class UniController extends Controller
      */
     public function update(Request $request, Uni $uni)
     {
-        //
+        $this->uni->update($uni->id,$request);
+        return redirect('/unis');
     }
 
     /**
@@ -83,6 +92,7 @@ class UniController extends Controller
      */
     public function destroy(Uni $uni)
     {
-        //
+         $this->uni->delete($uni->id);
+        return redirect('/unis');
     }
 }

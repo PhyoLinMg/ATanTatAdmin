@@ -1,8 +1,8 @@
 <?php 
 namespace App\Repositories\Model;
-use App\Repositories\Interfaces\MajorInterface;
+use App\Repositories\Interfaces\RepoInterface;
 use App\Major;
-class MajorModel implements MajorInterface{
+class MajorModel implements RepoInterface{
 	public function find($id){
 
 	}
@@ -15,6 +15,11 @@ class MajorModel implements MajorInterface{
 
 	}
 	public function update($id,$request){
+	
+		$major=Major::findOrFail($id);
+		$major->name=$request->name;
+		$major->year=$request->year;
+		$major->save();
 
 	}
 	public function delete($id){

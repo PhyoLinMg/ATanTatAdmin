@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Major;
 use Illuminate\Http\Request;
-use App\Repositories\Interfaces\MajorInterface;
+use App\Repositories\Model\MajorModel;
 
 class MajorController extends Controller
 {
     protected $major;
-    public function __construct(MajorInterface $major){
+    public function __construct(MajorModel $major){
         $this->major=$major;
     }
     /**
@@ -19,8 +19,8 @@ class MajorController extends Controller
      */
     public function index()
     {
-
-        return view('admin.major.index');
+        $majors=Major::paginate(5);
+        return view('admin.major.index',compact('majors'));
     }
 
     /**
@@ -65,6 +65,7 @@ class MajorController extends Controller
     public function edit(Major $major)
     {
         //
+        return view('admin.major.edit',compact('major'));
         
     }
 
@@ -78,6 +79,8 @@ class MajorController extends Controller
     public function update(Request $request, Major $major)
     {
         //
+        $this->major->update($major->id,$request);
+        return redirect('/majors');
     }
 
     /**
@@ -88,6 +91,7 @@ class MajorController extends Controller
      */
     public function destroy(Major $major)
     {
-        //
+       Major::destroy($major->id);
+       return redirect('/majors');
     }
 }
