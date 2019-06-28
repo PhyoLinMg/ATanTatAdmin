@@ -8,6 +8,6 @@ class Period extends Model
 {
     //
     protected $fillable = [
-        'sunject_id', 'major_id', 'start_time','end_time'
+        'subject_id', 'major_id', 'start_time','end_time'
     ];
 }

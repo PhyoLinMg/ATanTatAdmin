@@ -10,8 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-	<link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/all.css') }}" rel="stylesheet">
 	<link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
 </head>
@@ -41,6 +40,7 @@
 						@csrf
 					</form>
 				</div>
+				@stack('scripts')
 			</div>
 		</div>
 	</div>
@@ -48,6 +48,7 @@
 	<a class="scroll-to-top rounded" href="#page-top">
 		<i class="fas fa-angle-up"></i>
 	</a>
+
 	<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 	<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -55,9 +56,15 @@
 	<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="{{ asset('js/sb-admin.min.js') }}"></script>
 	
+	<script src="{{ asset('js/sb-admin.min.js') }}"></script>
+	<script src="{{ asset('js/time/mdtimepicker.js') }}"></script>
+
+	
+	
+	@stack('scripts')
 
 	
 </body>
+
 </html>

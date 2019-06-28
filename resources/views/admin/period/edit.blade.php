@@ -1,29 +1,28 @@
 @extends('admin.layout.masteradmin')
 
-
 @section('title')
 
-<title> Create</title>
+<title>Periods</title>
 @endsection
 
 @section('content')
-
 <div id="content-wrapper" class="black">
 
 	<div class="container-fluid">
-
 		<!-- Breadcrumbs-->
-		<ol class="breadcrumb black">
+		<ol class="breadcrumb black" >
 			<li class="breadcrumb-item">
 				<a href="/admin">Dashboard</a>
 			</li>
-			<li class="breadcrumb-item"><a href="/peroids">Peroids</a></li>
-			<li class="breadcrumb-item active">Create</li>
-
+			<li class="breadcrumb-item"><a href="/periods">Periods</a></li>
+			<li class="breadcrumb-item active">Edit</li>
 		</ol>
-
-		<form action="{{ route('periods.store') }}" method="post">
+		
+		<!-- Page Content -->
+		<form action="{{ route('periods.update',$period) }}" method="post">
+			{{ method_field("put") }}
 			@csrf
+			
 			<div class="form-group">
 				<label for="" class="white">Subject</label>
 				<select name="subject_id" id="">
@@ -50,22 +49,20 @@
 				<input class="form-control round time" name="end" id="" type="text" required/>
 				<small id="" class="form-text text-muted">Please enter start time</small>
 			</div>
-			<div class="box-footer">
-				<button type="submit" class="btn btn-primary">Submit</button>
+			<div>
+				<button type="submit" id='submit-all'class="btn btn-success mr-2">Submit</button>
 			</div>
 		</form>
+		
 	</div>
-</div>
+	@push('scripts')
 
-@push('scripts')
-
-<script type="text/javascript">
-	$(document).ready(function(){
+	<script type="text/javascript">
+		$(document).ready(function(){
 	            $('.time').mdtimepicker({theme: 'black'}); //Initializes the time picker
 	        });
 
 	    </script>
 
-	     @endpush
-
+	    @endpush
 	    @endsection

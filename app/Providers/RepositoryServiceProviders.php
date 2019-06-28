@@ -13,7 +13,7 @@ class RepositoryServiceProviders extends ServiceProvider
      */
     public function register()
     {
-        $models=array('Subject','Major','Uni');
+        $models=array('Subject','Major','Uni','Period');
         
         foreach ($models as $model) {
            $this->app->bind("App\Repositories\Interfaces\RepoInterface","App\Repositories\Model\\{$model}Model");

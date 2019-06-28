@@ -3,18 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Period;
+use App\Subject;
+use App\Major;
+use App\Repositories\Model\PeriodModel;
 use Illuminate\Http\Request;
 
 class PeriodController extends Controller
 {
+    protected $periods;
+    public function __construct(PeriodModel $periods){
+        $this->periods=$periods;
+    }
+    /**
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        return view('admin.period.index');
+        $periods=Period::paginate(5);
+        return view('admin.period.index',compact('periods'));
     }
 
     /**
@@ -24,8 +35,9 @@ class PeriodController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.period.create');
+        $subjects=Subject::get();
+        $majors=Major::get();
+        return view('admin.period.create',compact('subjects','majors'));
     }
 
     /**
@@ -36,8 +48,9 @@ class PeriodController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        
+
+        $this->periods->save($request);
+        return redirect('/periods');
     }
 
     /**
@@ -59,7 +72,9 @@ class PeriodController extends Controller
      */
     public function edit(Period $period)
     {
-        //
+        $subjects=Subject::get();
+        $majors=Major::get();
+        return view('admin.period.edit',compact('period','subjects','majors'));    
     }
 
     /**
@@ -71,7 +86,8 @@ class PeriodController extends Controller
      */
     public function update(Request $request, Period $period)
     {
-        //
+        $this->periods->update($period->id,$request);
+        return redirect('/periods');
     }
 
     /**
@@ -83,5 +99,21 @@ class PeriodController extends Controller
     public function destroy(Period $period)
     {
         //
+    }
+    public function showperiods(){
+        $data=[];
+        $periods=Period::get();
+        foreach($periods as $key=>$period){
+            $data[$key]=[
+                'subject_id'=>$period->subject_id,
+                'subject_name'=>Subject::find($period->subject_id)->name,
+                'major_id'=>$period->major_id,
+                'major_name'=>Major::find($period->major_id)->name,
+                'start_time'=>$period->start_time,
+                'end_time'=>$period->end_time
+            ];
+        }
+
+        return response()->json($data);
     }
 }
