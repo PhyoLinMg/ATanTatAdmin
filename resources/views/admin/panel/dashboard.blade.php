@@ -7,22 +7,19 @@
 @endsection
 
 @section('content')
-<div id="content-wrapper">
+<div id="content-wrapper" class="black">
 
-	<div class="container-fluid" >
+	<div class="container-fluid">
 
 		<!-- Breadcrumbs-->
-		<ol class="breadcrumb">
+		<ol class="breadcrumb black">
 			<li class="breadcrumb-item">
 				<a href="/admin">Dashboard</a>
 			</li>
-			
 		</ol>
 
 		<!-- Page Content -->
-		<h1>Blank Page</h1>
-		<hr>
-		<p>Good game well played My friend</p>
+		
 
 	</div>
 	@endsection
