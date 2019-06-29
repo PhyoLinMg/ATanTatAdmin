@@ -24,5 +24,5 @@ Route::group([
 ], function() {
 	Route::get('subjects', 'SubjectController@getAll');
 	Route::get('majors', 'MajorController@getAll');
-	Route::get('periods','PeriodController@showperiods');
+	
 });
