@@ -104,7 +104,7 @@ class PeriodController extends Controller
         $data=[];
         $periods=Period::get();
         foreach($periods as $key=>$period){
-            $data[$key]=[
+            $data["data"][$key]=[
                 'subject_id'=>$period->subject_id,
                 'subject_name'=>Subject::find($period->subject_id)->name,
                 'major_id'=>$period->major_id,
