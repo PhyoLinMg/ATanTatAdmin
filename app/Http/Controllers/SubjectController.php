@@ -93,7 +93,4 @@ class SubjectController extends Controller
         $this->subject->delete($subject->id);
         return redirect('/subjects');
     }
-    public function getAll(){
-        return response()->json(Subject::get());
-    }
 }

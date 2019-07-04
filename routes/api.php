@@ -22,7 +22,7 @@ Route::post('signup', 'ApiAuthController@signup');
 Route::group([
 	'middleware' => 'auth:api'
 ], function() {
-	Route::get('subjects', 'SubjectController@getAll');
-	Route::get('majors', 'MajorController@getAll');
-	Route::get('periods','PeriodController@showperiods');
+	Route::get('subjects', 'ApiController@getSubjects');
+	Route::get('majors', 'ApiController@getMajors');
+	Route::get('periods','ApiController@showperiods');
 });

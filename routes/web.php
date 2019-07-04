@@ -31,6 +31,6 @@ Route::resource('students','StudentController');
 Route::resource('unis','UniController');
 Route::resource('years','YearController');
 
-Route::get('periods','PeriodController@showperiods');
+
 
 

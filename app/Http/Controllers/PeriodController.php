@@ -100,20 +100,5 @@ class PeriodController extends Controller
     {
         //
     }
-    public function showperiods(){
-        $data=[];
-        $periods=Period::get();
-        foreach($periods as $key=>$period){
-            $data["data"][$key]=[
-                'subject_id'=>$period->subject_id,
-                'subject_name'=>Subject::find($period->subject_id)->name,
-                'major_id'=>$period->major_id,
-                'major_name'=>Major::find($period->major_id)->name,
-                'start_time'=>$period->start_time,
-                'end_time'=>$period->end_time
-            ];
-        }
-
-        return response()->json($data);
-    }
+    
 }
