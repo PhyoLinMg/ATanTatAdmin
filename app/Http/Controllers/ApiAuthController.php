@@ -48,7 +48,9 @@ class ApiAuthController extends Controller
     	 $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
+            'password' => 'required|string|confirmed',
+            'uni_id'=>'required|integer',
+            'major_id'=>'required|integer'
         ]);
 
         $user = new User([
