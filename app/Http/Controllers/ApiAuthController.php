@@ -14,6 +14,8 @@ class ApiAuthController extends Controller
     	$request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
+            'uni_id'=>'required|integer',
+            'major_id'=>'required|integer',
             'remember_me' => 'boolean'
         ]);
 
@@ -53,7 +55,9 @@ class ApiAuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'role'=>'user'
+            'role'=>'user',
+            'uni_id'=>$request->uni_id,
+            'major_id'=>$request->major_id
         ]);
 
        
@@ -61,7 +65,6 @@ class ApiAuthController extends Controller
 
         return response()->json([
             'message' => 'Successfully created user!',
-            
         ], 201);
     }
     public function logout(){

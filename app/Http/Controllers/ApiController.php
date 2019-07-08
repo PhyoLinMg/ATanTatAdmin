@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Period;
 use App\Subject;
 use App\Major;
+use App\Uni;
 
 class ApiController extends Controller
 {
@@ -39,6 +40,26 @@ class ApiController extends Controller
     	return response()->json($data);
     }
     public function getMajors(){
-
+        $data=[];
+        $majors=Major::get();
+        foreach($majors as $key=>$major){
+            $data["data"][$key]=[
+                'id'=>$major->id,
+                'name'=>$major->name,
+                'year'=>$major->year
+            ];
+        }
+        return response()->json($data);
+    }
+    public function getUniversities(){
+        $data=[];
+        $unis=Uni::get();
+        foreach($unis as $key=>$uni){
+            $data["data"][$key]=[
+                'id'=>$uni->id,
+                'name'=>$uni->name
+            ];
+        }
+        return response()->json($data);
     }
 }

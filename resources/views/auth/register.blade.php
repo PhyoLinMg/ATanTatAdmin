@@ -60,7 +60,28 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Universities</label>
 
+                            <div class="col-md-6">
+                               <select name="uni" id="">
+                                   @foreach($unis as $uni)
+                                        <option value="{{$uni->id}}">{{$uni->name}}</option>
+                                   @endforeach
+                               </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Majors</label>
+
+                            <div class="col-md-6">
+                               <select name="majors" id="">
+                                   @foreach($majors as $major)
+                                        <option value="{{$major->id}}">{{$major->name}}</option>
+                                   @endforeach
+                               </select>
+                            </div>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

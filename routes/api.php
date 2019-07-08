@@ -26,3 +26,6 @@ Route::group([
 	Route::get('majors', 'ApiController@getMajors');
 	Route::get('periods','ApiController@showperiods');
 });
+
+Route::get('universities','ApiController@getUniversities');
+Route::get('majors','ApiController@getMajors');

@@ -17,7 +17,9 @@ class UserTableSeeder extends Seeder
         	'name'=>'admin',
         	'email'=>'admin@gmail.com',
         	'password'=>Hash::make('admin1234'),
-        	'role'=>'admin'
+        	'role'=>'admin',
+            'uni_id'=>1,
+            'major_id'=>1
         ]);
     }
 }
