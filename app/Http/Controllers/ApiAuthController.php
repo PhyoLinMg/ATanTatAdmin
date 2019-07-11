@@ -41,7 +41,8 @@ class ApiAuthController extends Controller
             'token_type' => 'Bearer',
             'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
-            )->toDateTimeString()
+            )->toDateTimeString(),
+            'message'=>'success'
         ]);
     }
     public function signup(Request $request){
