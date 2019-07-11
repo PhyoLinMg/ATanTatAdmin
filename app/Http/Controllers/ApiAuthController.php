@@ -23,9 +23,6 @@ class ApiAuthController extends Controller
 
         if(!Auth::attempt($credentials))
             return response()->json([
-                'access_token' => '',
-                'token_type' => '',
-                'expires_at' =>'',
                 'message' => 'Unauthorized'
             ], 401);
 
