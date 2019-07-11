@@ -23,6 +23,9 @@ class ApiAuthController extends Controller
 
         if(!Auth::attempt($credentials))
             return response()->json([
+                'access_token' => '',
+                'token_type' => '',
+                'expires_at' =>'',
                 'message' => 'Unauthorized'
             ], 401);
 
@@ -46,36 +49,36 @@ class ApiAuthController extends Controller
         ]);
     }
     public function signup(Request $request){
-    	 $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed',
-            'uni_id'=>'required|integer',
-            'major_id'=>'required|integer'
-        ]);
+      $request->validate([
+        'name' => 'required|string',
+        'email' => 'required|string|email|unique:users',
+        'password' => 'required|string|confirmed',
+        'uni_id'=>'required|integer',
+        'major_id'=>'required|integer'
+    ]);
 
-        $user = new User([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'role'=>'user',
-            'uni_id'=>$request->uni_id,
-            'major_id'=>$request->major_id
-        ]);
+      $user = new User([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'role'=>'user',
+        'uni_id'=>$request->uni_id,
+        'major_id'=>$request->major_id
+    ]);
 
-       
-        $user->save();
 
-        return response()->json([
-            'message' => 'Successfully created user!',
-        ], 201);
-    }
-    public function logout(){
-    	
-        $request->user()->token()->revoke();
+      $user->save();
 
-        return response()->json([
-            'message' => 'Successfully logged out'
-        ]);
-    }
+      return response()->json([
+        'message' => 'Successfully created user!',
+    ], 201);
+  }
+  public function logout(){
+
+    $request->user()->token()->revoke();
+
+    return response()->json([
+        'message' => 'Successfully logged out'
+    ]);
+}
 }
