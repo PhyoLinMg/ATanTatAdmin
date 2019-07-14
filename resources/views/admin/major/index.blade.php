@@ -26,7 +26,6 @@
 					<td>Name</td>
 					<td>Year</td>
 					<td></td>
-					<td></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -35,13 +34,13 @@
 					<td>{{$major->name}}</td>
 					<td>{{$major->year}}</td>
 					<td><a href="{{ route('majors.edit',$major->id) }}" class="btn btn-primary">Edit</a></td>
-					<td>
+					{{-- <td>
 						<form id = "deleteform{{$major->id}}" action="{{route('majors.destroy',$major->id)}}" method="post">
 							@csrf
 							<input type="hidden" name="_method" value="delete">
 						</form>
 						<button onclick="confirm({{$major->id}})" class="btn btn-danger">Delete</button>
-					</td>
+					</td> --}}
 				</tr>
 				@endforeach
 			</tbody>
@@ -49,7 +48,7 @@
 		</table>
 
 	</div>
-	<script>
+{{-- 	<script>
         function confirm($id){
             const swal=window.swal;
     
@@ -70,6 +69,6 @@
                 }
             });
         }
-    </script>
+    </script> --}}
 
 	@endsection

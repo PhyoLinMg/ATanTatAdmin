@@ -27,7 +27,7 @@
 				<tr>
 					<td>Name</td>
 					<td></td>
-					<td></td>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -35,13 +35,13 @@
 				<tr>
 					<td>{{$uni->name}}</td>
 					<td><a href="{{ route('unis.edit',$uni->id) }}" class="btn btn-primary">Edit</a></td>
-					<td>
+					{{-- <td>
 						<form id = "deleteform{{$uni->id}}" action="{{route('unis.destroy',$uni->id)}}" method="post">
 							@csrf
 							<input type="hidden" name="_method" value="delete">
 						</form>
 						<button onclick="confirm({{$uni->id}})" class="btn btn-danger">Delete</button>
-					</td>
+					</td> --}}
 				</tr>
 				@endforeach
 			</tbody>
@@ -54,7 +54,7 @@
 	</div>
 </div>
 
-<script>
+{{-- <script>
 	function confirm($id){
 		const swal=window.swal;
 		
@@ -75,6 +75,6 @@
 			}
 		});
 	}
-</script>
+</script> --}}
 
 @endsection
