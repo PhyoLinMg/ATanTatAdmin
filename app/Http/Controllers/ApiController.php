@@ -64,6 +64,6 @@ class ApiController extends Controller
     }
     public function updateRollCall(Request $request){
         $gg=$request;
-        return response()->json(["message"=>(string)$gg]);
+        return response()->json(["message"=>(string)$request]);
     }
 }
