@@ -25,6 +25,7 @@ Route::group([
 	Route::get('subjects', 'ApiController@getSubjects');
 	Route::get('majors', 'ApiController@getMajors');
 	Route::get('periods','ApiController@showperiods');
+	Route::post('attendances','ApiController@updateRollCall');
 });
 
 Route::get('universities','ApiController@getUniversities');
