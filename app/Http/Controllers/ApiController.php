@@ -64,11 +64,7 @@ class ApiController extends Controller
     }
     public function updateRollCall(Request $request){
         $list=$request->yesno;
-        $gg=null;
-        foreach($list as $li)
-        {
-            $gg=(string)$li;
-        }
-        return response()->json(["message"=>(string)$gg]);
+        
+        return response()->json(["message"=>$request->yesno]);
     }
 }
