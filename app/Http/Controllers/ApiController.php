@@ -67,7 +67,7 @@ class ApiController extends Controller
         $string=[];
 
         foreach ($list as $key => $value) {
-            $string[$key]=$value
+            $string[$key]=$value;
         }
         return response()->json(["message"=>(string)$string]);
     }
