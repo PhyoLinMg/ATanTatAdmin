@@ -63,6 +63,6 @@ class ApiController extends Controller
         return response()->json($data);
     }
     public function updateRollCall(Request $request){
-        return response()->json($request[0]->yes);
+        return response()->json($request->yes);
     }
 }
