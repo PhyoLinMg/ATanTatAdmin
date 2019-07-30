@@ -63,6 +63,11 @@ class ApiController extends Controller
         return response()->json($data);
     }
     public function updateRollCall(Request $request){
-        return response()->json(["message"=>(string)$request]);
+        $id=$request->id;
+        $subject=Subject::findOrFail($id);
+        $subject->yes=$request->yes;
+        $subject->no=$request->no;
+        $subject->save();
+        return response()->json(["message"=>"Success"]);
     }
 }
