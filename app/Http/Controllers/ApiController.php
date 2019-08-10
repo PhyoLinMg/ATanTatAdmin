@@ -70,4 +70,16 @@ class ApiController extends Controller
         $subject->save();
         return response()->json(["message"=>"Success"]);
     }
+     public function user(Request $request)
+    {
+        $user=$request->user();
+        $data=[
+            'name'=>$user->name,
+            'email'=>$user->email,
+            'university'=>Uni::find($user->uni_id)->name,
+            'major'=>Major::find($user->major_id)->name
+        ];
+        return response()->json($data);
+    }
+
 }
