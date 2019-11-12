@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('email', 'QueueController@sendEmail');
+
 Route::get('/admin','AdminController@admin');
 
 Route::get('/admin/register','AdminController@adminregister')->name('adminregister');
